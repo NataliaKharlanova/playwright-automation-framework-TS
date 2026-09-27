@@ -19,6 +19,13 @@ export const LoginResponseSchema = z.object({
   expires_in: z.number().int().positive(),
 });
 
+export const UserSchema = z.object({
+  id: z.string(),
+  first_name: z.string().min(1),
+  last_name: z.string().min(1),
+  email: z.email(),
+});
+
 export function paginated<T extends z.ZodType>(item: T) {
   return z.object({
     current_page: z.number().int(),

@@ -1,18 +1,20 @@
 {
   "name": "playwright-automation-framework-ts",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {
-    "test": "playwright test"
-  },
-  "keywords": [],
-  "author": "",
+  "private": true,
+  "description": "UI + API test automation framework: Playwright, TypeScript, Zod schema validation",
+  "author": "Natalia Kharlanova",
   "license": "ISC",
   "type": "commonjs",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test --project=api",
+    "test:ui": "playwright test --project=chromium",
+    "test:headed": "playwright test --project=chromium --headed",
+    "report": "playwright show-report",
+    "api:spec": "curl -o spec/toolshop-openapi.json \"https://api.practicesoftwaretesting.com/docs?api-docs.json\"",
+    "api:gen": "npx -y openapi-typescript@7 spec/toolshop-openapi.json -o src/types/generated/toolshop-api.d.ts"
+  },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.6.3",
