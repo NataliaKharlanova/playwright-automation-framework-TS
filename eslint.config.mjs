@@ -1,6 +1,7 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import playwright from 'eslint-plugin-playwright';
+import globals from 'globals';
 
 export default tseslint.config(
     {
@@ -17,6 +18,11 @@ export default tseslint.config(
             // Un-awaited Playwright calls (expect, request, page actions) are the most common silent bug
             '@typescript-eslint/no-floating-promises': 'error',
         },
+    },
+    {
+        // Plain JS run by Node: the ESLint config itself and Claude Code hooks
+        files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+        languageOptions: { globals: globals.node },
     },
     {
         files: ['tests/**/*.ts', '**/*.spec.ts'],
