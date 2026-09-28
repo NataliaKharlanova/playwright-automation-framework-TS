@@ -4,10 +4,13 @@ import { env } from '../config/env';
 import { LoginResponse } from '../types/toolshop';
 
 type Fixtures = {
+    /** `ApiClient` bound to the per-test request context. */
     apiClient: ApiClient;
+    /** Access token for the `.env` customer, obtained via `POST /users/login`. */
     customerToken: string;
 };
 
+/** Playwright `test` extended with the project's API fixtures. Import `test`/`expect` from here. */
 export const test = base.extend<Fixtures>({
     apiClient: async ({ request }, use) => {
         await use(new ApiClient(request));

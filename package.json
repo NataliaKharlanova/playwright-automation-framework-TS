@@ -13,13 +13,23 @@
     "test:headed": "playwright test --project=chromium --headed",
     "report": "playwright show-report",
     "api:spec": "curl -o spec/toolshop-openapi.json \"https://api.practicesoftwaretesting.com/docs?api-docs.json\"",
-    "api:gen": "npx -y openapi-typescript@7 spec/toolshop-openapi.json -o src/types/generated/toolshop-api.d.ts"
+    "api:gen": "npx -y openapi-typescript@7 spec/toolshop-openapi.json -o src/types/generated/toolshop-api.d.ts",
+    "docker:build": "docker compose -f docker/docker-compose.yml build",
+    "docker:test": "docker compose -f docker/docker-compose.yml run --rm tests",
+    "docker:test:api": "docker compose -f docker/docker-compose.yml run --rm tests npx playwright test --project=api",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.6.3",
     "dotenv": "^18.0.4",
-    "typescript": "^7.0.2",
+    "eslint": "^10.11.0",
+    "eslint-plugin-playwright": "^2.12.0",
+    "globals": "^17.12.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.70.1",
     "zod": "^4.6.5"
   }
 }

@@ -12,6 +12,10 @@ function required(name: string): string {
   return value;
 }
 
+/**
+ * Validated configuration loaded from `.env.<ENV>` (default `qa`).
+ * Throws on import if a required variable is missing.
+ */
 export const env = {
   name: envName,
   baseUrl: required('BASE_URL'),

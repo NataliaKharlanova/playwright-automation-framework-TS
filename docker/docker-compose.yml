@@ -1,0 +1,18 @@
+# Paths are relative to this file (docker/), so the project root is ".."
+services:
+  tests:
+    build:
+      context: ..                   # build from the project root
+      dockerfile: docker/Dockerfile # relative to the context
+    # Environment variables for the run (URLs, credentials)
+    env_file:
+      - ../.env.${ENV:-qa}
+    environment:
+      - CI=true
+    # Recommended by Playwright for Chromium stability in Docker
+    ipc: host
+    init: true
+    # Reports appear on the host machine after the run
+    volumes:
+      - ../playwright-report:/app/playwright-report
+      - ../test-results:/app/test-results
