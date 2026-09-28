@@ -26,6 +26,7 @@ export const UserSchema = z.object({
   email: z.email(),
 });
 
+/** Builds a schema for a paginated list response whose `data` items match `item`. */
 export function paginated<T extends z.ZodType>(item: T) {
   return z.object({
     current_page: z.number().int(),

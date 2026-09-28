@@ -1,6 +1,10 @@
 import { expect } from '@playwright/test';
 import { z } from 'zod';
 
+/**
+ * Asserts that `data` matches `schema` and returns it typed.
+ * On mismatch the test fails with the Zod issues in the message.
+ */
 export function expectToMatchSchema<T extends z.ZodType>(schema: T, data: unknown): z.infer<T> {
   const result = schema.safeParse(data);
 
