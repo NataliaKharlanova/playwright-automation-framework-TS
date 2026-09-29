@@ -64,7 +64,7 @@ Designed and built by **Natalia Kharlanova**.
 ### Install
 
 ```bash
-git clone https://github.com/<your-username>/playwright-automation-framework-TS.git
+git clone https://github.com/NataliaKharlanova/playwright-automation-framework-TS.git
 cd playwright-automation-framework-TS
 npm ci
 npx playwright install
@@ -162,8 +162,8 @@ npm run api:gen    # regenerate TypeScript types
 
 **Natalia Kharlanova** — SDET
 
-- GitHub: [@&lt;your-username&gt;](https://github.com/NataliaKharlanova)
-- LinkedIn: [linkedin.com/in/&lt;your-profile&gt;](https://www.linkedin.com/in/natalia-kharlanova-85637564/)
+- GitHub: [@NataliaKharlanova](https://github.com/NataliaKharlanova)
+- LinkedIn: [linkedin.com/in/natalia-kharlanova-85637564](https://www.linkedin.com/in/natalia-kharlanova-85637564/)
 
 ## Credits
 
